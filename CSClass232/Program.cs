@@ -13,6 +13,49 @@ namespace CSClass232
             rx = x + vx;
             ry = y + vy;
         }
+
+        class PointClass
+        {
+            public int x;
+            public int y;
+            public PointClass(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+        }
+        struct PointStruct
+        {
+            public int x;
+            public int y;
+            public PointStruct(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+        }
+        struct Point
+        {
+            public int x;
+            public int y;
+            public string testA;
+            public string testB;
+
+            public Point(int x, int y)
+            {
+                this.x = x;
+                this.y = y;
+                this.testA = "초기화";
+                this.testB = "초기화";
+            }
+            public Point(int x, int y, string s)
+            {
+                this.x = x;
+                this.y = y;
+                this.testA = s;
+                this.testB = s;
+            }
+        }
         static void Main(string[] args)
         {
             Wanted<string> wantedString = new Wanted<string>("String");
@@ -22,7 +65,7 @@ namespace CSClass232
             Console.WriteLine(wantedString.Value);
             Console.WriteLine(wantedInt.Value);
             Console.WriteLine(wantedDouble.Value);
-            
+
             Products p = new Products();
             Console.WriteLine("오늘의 점심 메뉴는 " + p[2] + "입니다.");
             p[2] = "단무지";
@@ -34,7 +77,7 @@ namespace CSClass232
             if (result)
             {
                 Console.WriteLine("입력한 숫자" + output);
-                
+
             }
             else
             {
@@ -67,49 +110,19 @@ namespace CSClass232
             Console.WriteLine(psA.x + "/" + psA.y);
             Console.WriteLine(psB.x + "/" + psB.y);
 
+            List<product> list = new List<product>()
+            {
+                 new product() { Name = "고구마", Price = 1500 },
+            new product() { Name = "사과", Price = 2400 },
+            new product() { Name = "바나나", Price = 1000 },
+            new product() { Name = "배", Price = 3000 },
+        };
+            list.Sort();
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+        }
 
-        }
-        class PointClass
-        {
-            public int x;
-            public int y;
-            public PointClass(int x , int y)
-            {
-                this.x = x;
-                this.y = y; 
-            }
-        }
-        struct PointStruct
-        {
-            public int x;
-            public int y;
-            public PointStruct(int x, int y)
-            {
-                this.x = x;
-                this.y = y;
-            }
-        }
-        struct Point
-        {
-            public int x;
-            public int y;
-            public string testA;
-            public string testB;
-
-            public Point(int x, int y)
-            {
-                this.x = x;
-                this.y = y;
-                this.testA = "초기화";
-                this.testB = "초기화";
-            }
-            public Point(int x , int y , string s)
-            {
-                this.x=x;
-                this.y=y;
-                this.testA = s;
-                this.testB = s;
-            }
-        }
     }
 }
