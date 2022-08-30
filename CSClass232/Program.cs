@@ -1,6 +1,9 @@
-﻿using System;
+﻿using NUnit.Framework.Internal;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -124,12 +127,38 @@ namespace CSClass232
             }
         }
 
+        //IBasic test = new TestClass();
+        //test.TestProperty = 3;
+        //Test.TestInstanceMethod();
+         //test.foobar();
+        //(test as TestClass).foobar();
+
     }
+
     class Dummy : IDisposable
     {
         public void Dispose()
         {
-            Console.WriteLine("Dispose() 메서드 호출"); 
+            Console.WriteLine("Dispose() 메서드를 호출했습니다.");
         }
     }
+
+    class TestClass : IBasic
+    {
+        public int foobar()
+        {
+            return -1;
+        }
+        public int TestProperty
+        {
+            get => throw new NotImplementedException();
+            set => throw new NotImplementedException();
+        }
+
+        public int TestInstanceMethod()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }
