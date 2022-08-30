@@ -125,4 +125,11 @@ namespace CSClass232
         }
 
     }
+    class Dummy : IDisposable
+    {
+        public void Dispose()
+        {
+            Console.WriteLine("Dispose() 메서드 호출"); 
+        }
+    }
 }
